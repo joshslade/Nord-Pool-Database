@@ -1,0 +1,346 @@
+{
+    "deliveryDateCET": "2025-05-31",
+    "version": 2,
+    "updatedAt": "2025-05-30T08:59:27.1463296Z",
+    "deliveryAreas": [
+        "NO2",
+        "UK"
+    ],
+    "market": "N2EX_DayAhead",
+    "multiAreaEntries": [
+        {
+            "deliveryStart": "2025-05-30T22:00:00Z",
+            "deliveryEnd": "2025-05-30T23:00:00Z",
+            "entryPerArea": {
+                "NO2": 57.42,
+                "UK": 87.78
+            }
+        },
+        {
+            "deliveryStart": "2025-05-30T23:00:00Z",
+            "deliveryEnd": "2025-05-31T00:00:00Z",
+            "entryPerArea": {
+                "NO2": 57.18,
+                "UK": 82.22
+            }
+        },
+        {
+            "deliveryStart": "2025-05-31T00:00:00Z",
+            "deliveryEnd": "2025-05-31T01:00:00Z",
+            "entryPerArea": {
+                "NO2": 57.61,
+                "UK": 82.47
+            }
+        },
+        {
+            "deliveryStart": "2025-05-31T01:00:00Z",
+            "deliveryEnd": "2025-05-31T02:00:00Z",
+            "entryPerArea": {
+                "NO2": 57.59,
+                "UK": 81.93
+            }
+        },
+        {
+            "deliveryStart": "2025-05-31T02:00:00Z",
+            "deliveryEnd": "2025-05-31T03:00:00Z",
+            "entryPerArea": {
+                "NO2": 57.66,
+                "UK": 81.21
+            }
+        },
+        {
+            "deliveryStart": "2025-05-31T03:00:00Z",
+            "deliveryEnd": "2025-05-31T04:00:00Z",
+            "entryPerArea": {
+                "NO2": 57.42,
+                "UK": 80.26
+            }
+        },
+        {
+            "deliveryStart": "2025-05-31T04:00:00Z",
+            "deliveryEnd": "2025-05-31T05:00:00Z",
+            "entryPerArea": {
+                "NO2": 58.61,
+                "UK": 80.00
+            }
+        },
+        {
+            "deliveryStart": "2025-05-31T05:00:00Z",
+            "deliveryEnd": "2025-05-31T06:00:00Z",
+            "entryPerArea": {
+                "NO2": 59.40,
+                "UK": 79.96
+            }
+        },
+        {
+            "deliveryStart": "2025-05-31T06:00:00Z",
+            "deliveryEnd": "2025-05-31T07:00:00Z",
+            "entryPerArea": {
+                "NO2": 54.49,
+                "UK": 71.00
+            }
+        },
+        {
+            "deliveryStart": "2025-05-31T07:00:00Z",
+            "deliveryEnd": "2025-05-31T08:00:00Z",
+            "entryPerArea": {
+                "NO2": 43.90,
+                "UK": 63.47
+            }
+        },
+        {
+            "deliveryStart": "2025-05-31T08:00:00Z",
+            "deliveryEnd": "2025-05-31T09:00:00Z",
+            "entryPerArea": {
+                "NO2": 30.91,
+                "UK": 51.50
+            }
+        },
+        {
+            "deliveryStart": "2025-05-31T09:00:00Z",
+            "deliveryEnd": "2025-05-31T10:00:00Z",
+            "entryPerArea": {
+                "NO2": 21.36,
+                "UK": 21.28
+            }
+        },
+        {
+            "deliveryStart": "2025-05-31T10:00:00Z",
+            "deliveryEnd": "2025-05-31T11:00:00Z",
+            "entryPerArea": {
+                "NO2": 12.42,
+                "UK": -2.14
+            }
+        },
+        {
+            "deliveryStart": "2025-05-31T11:00:00Z",
+            "deliveryEnd": "2025-05-31T12:00:00Z",
+            "entryPerArea": {
+                "NO2": 7.97,
+                "UK": -8.11
+            }
+        },
+        {
+            "deliveryStart": "2025-05-31T12:00:00Z",
+            "deliveryEnd": "2025-05-31T13:00:00Z",
+            "entryPerArea": {
+                "NO2": 2.40,
+                "UK": -3.18
+            }
+        },
+        {
+            "deliveryStart": "2025-05-31T13:00:00Z",
+            "deliveryEnd": "2025-05-31T14:00:00Z",
+            "entryPerArea": {
+                "NO2": 3.03,
+                "UK": -5.55
+            }
+        },
+        {
+            "deliveryStart": "2025-05-31T14:00:00Z",
+            "deliveryEnd": "2025-05-31T15:00:00Z",
+            "entryPerArea": {
+                "NO2": 15.91,
+                "UK": -2.14
+            }
+        },
+        {
+            "deliveryStart": "2025-05-31T15:00:00Z",
+            "deliveryEnd": "2025-05-31T16:00:00Z",
+            "entryPerArea": {
+                "NO2": 39.62,
+                "UK": 22.39
+            }
+        },
+        {
+            "deliveryStart": "2025-05-31T16:00:00Z",
+            "deliveryEnd": "2025-05-31T17:00:00Z",
+            "entryPerArea": {
+                "NO2": 52.94,
+                "UK": 69.48
+            }
+        },
+        {
+            "deliveryStart": "2025-05-31T17:00:00Z",
+            "deliveryEnd": "2025-05-31T18:00:00Z",
+            "entryPerArea": {
+                "NO2": 62.10,
+                "UK": 80.80
+            }
+        },
+        {
+            "deliveryStart": "2025-05-31T18:00:00Z",
+            "deliveryEnd": "2025-05-31T19:00:00Z",
+            "entryPerArea": {
+                "NO2": 73.83,
+                "UK": 88.57
+            }
+        },
+        {
+            "deliveryStart": "2025-05-31T19:00:00Z",
+            "deliveryEnd": "2025-05-31T20:00:00Z",
+            "entryPerArea": {
+                "NO2": 80.41,
+                "UK": 91.23
+            }
+        },
+        {
+            "deliveryStart": "2025-05-31T20:00:00Z",
+            "deliveryEnd": "2025-05-31T21:00:00Z",
+            "entryPerArea": {
+                "NO2": 76.51,
+                "UK": 95.62
+            }
+        },
+        {
+            "deliveryStart": "2025-05-31T21:00:00Z",
+            "deliveryEnd": "2025-05-31T22:00:00Z",
+            "entryPerArea": {
+                "NO2": 70.17,
+                "UK": 83.57
+            }
+        }
+    ],
+    "blockPriceAggregates": [
+        {
+            "blockName": "Base",
+            "deliveryStart": "2025-05-30T22:00:00Z",
+            "deliveryEnd": "2025-05-31T22:00:00Z",
+            "averagePricePerArea": {
+                "NO2": {
+                    "average": 46.29,
+                    "min": 2.40,
+                    "max": 80.41
+                },
+                "UK": {
+                    "average": 57.23,
+                    "min": -8.11,
+                    "max": 95.62
+                }
+            }
+        },
+        {
+            "blockName": "Overnight",
+            "deliveryStart": "2025-05-30T22:00:00Z",
+            "deliveryEnd": "2025-05-31T06:00:00Z",
+            "averagePricePerArea": {
+                "NO2": {
+                    "average": 57.86,
+                    "min": 57.18,
+                    "max": 59.40
+                },
+                "UK": {
+                    "average": 81.98,
+                    "min": 79.96,
+                    "max": 87.78
+                }
+            }
+        },
+        {
+            "blockName": "Extended peak",
+            "deliveryStart": "2025-05-31T06:00:00Z",
+            "deliveryEnd": "2025-05-31T22:00:00Z",
+            "averagePricePerArea": {
+                "NO2": {
+                    "average": 40.50,
+                    "min": 2.40,
+                    "max": 80.41
+                },
+                "UK": {
+                    "average": 44.86,
+                    "min": -8.11,
+                    "max": 95.62
+                }
+            }
+        },
+        {
+            "blockName": "Peak",
+            "deliveryStart": "2025-05-31T06:00:00Z",
+            "deliveryEnd": "2025-05-31T18:00:00Z",
+            "averagePricePerArea": {
+                "NO2": {
+                    "average": 28.92,
+                    "min": 2.40,
+                    "max": 62.10
+                },
+                "UK": {
+                    "average": 29.90,
+                    "min": -8.11,
+                    "max": 80.80
+                }
+            }
+        },
+        {
+            "blockName": "Block 3+4",
+            "deliveryStart": "2025-05-31T06:00:00Z",
+            "deliveryEnd": "2025-05-31T14:00:00Z",
+            "averagePricePerArea": {
+                "NO2": {
+                    "average": 22.06,
+                    "min": 2.40,
+                    "max": 54.49
+                },
+                "UK": {
+                    "average": 23.53,
+                    "min": -8.11,
+                    "max": 71.00
+                }
+            }
+        },
+        {
+            "blockName": "Block 5",
+            "deliveryStart": "2025-05-31T14:00:00Z",
+            "deliveryEnd": "2025-05-31T18:00:00Z",
+            "averagePricePerArea": {
+                "NO2": {
+                    "average": 42.64,
+                    "min": 15.91,
+                    "max": 62.10
+                },
+                "UK": {
+                    "average": 42.63,
+                    "min": -2.14,
+                    "max": 80.80
+                }
+            }
+        },
+        {
+            "blockName": "Block 6",
+            "deliveryStart": "2025-05-31T18:00:00Z",
+            "deliveryEnd": "2025-05-31T22:00:00Z",
+            "averagePricePerArea": {
+                "NO2": {
+                    "average": 75.23,
+                    "min": 70.17,
+                    "max": 80.41
+                },
+                "UK": {
+                    "average": 89.75,
+                    "min": 83.57,
+                    "max": 95.62
+                }
+            }
+        }
+    ],
+    "currency": "GBP",
+    "exchangeRate": 0.84108,
+    "areaStates": [
+        {
+            "state": "Final",
+            "areas": [
+                "NO2",
+                "UK"
+            ]
+        }
+    ],
+    "areaAverages": [
+        {
+            "areaCode": "NO2",
+            "price": 46.29
+        },
+        {
+            "areaCode": "UK",
+            "price": 57.23
+        }
+    ]
+}

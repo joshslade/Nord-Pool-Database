@@ -1,0 +1,513 @@
+{
+    "version": 2,
+    "auctionIdentifier": null,
+    "dataSource": "Auction",
+    "market": "N2EX_DayAhead",
+    "unit": "MW",
+    "totalVolumeUnit": "MWh",
+    "blockVolumesUnit": "MWh",
+    "areaSummaries": {
+        "totalPerArea": {
+            "NO2": {
+                "buy": 9745.2,
+                "sell": 30658.8
+            },
+            "UK": {
+                "buy": 306098.8,
+                "sell": 286068.8
+            }
+        },
+        "deliveryStart": "2025-05-30",
+        "deliveryEnd": "2025-05-30",
+        "averagePerArea": {
+            "NO2": {
+                "buy": 406.05,
+                "sell": 1277.45
+            },
+            "UK": {
+                "buy": 12754.117,
+                "sell": 11919.533
+            }
+        },
+        "maxPerArea": {
+            "NO2": {
+                "buy": 1601.1,
+                "sell": 1911.0
+            },
+            "UK": {
+                "buy": 16006.3,
+                "sell": 14606.6
+            }
+        },
+        "minPerArea": {
+            "NO2": {
+                "buy": 0.0,
+                "sell": 535.9
+            },
+            "UK": {
+                "buy": 11316.8,
+                "sell": 10051.7
+            }
+        }
+    },
+    "blockVolumeAggregates": [
+        {
+            "blockName": "Base",
+            "deliveryStart": "2025-05-29T22:00:00Z",
+            "deliveryEnd": "2025-05-30T22:00:00Z",
+            "volumePerArea": {
+                "NO2": {
+                    "buy": 9745.2,
+                    "sell": 30658.8
+                },
+                "UK": {
+                    "buy": 306098.8,
+                    "sell": 286068.8
+                }
+            }
+        },
+        {
+            "blockName": "Overnight",
+            "deliveryStart": "2025-05-29T22:00:00Z",
+            "deliveryEnd": "2025-05-30T06:00:00Z",
+            "volumePerArea": {
+                "NO2": {
+                    "buy": 6912.4,
+                    "sell": 6037.0
+                },
+                "UK": {
+                    "buy": 94004.4,
+                    "sell": 95022.1
+                }
+            }
+        },
+        {
+            "blockName": "Extended peak",
+            "deliveryStart": "2025-05-30T06:00:00Z",
+            "deliveryEnd": "2025-05-30T22:00:00Z",
+            "volumePerArea": {
+                "NO2": {
+                    "buy": 2832.8,
+                    "sell": 24621.8
+                },
+                "UK": {
+                    "buy": 212094.4,
+                    "sell": 191046.7
+                }
+            }
+        },
+        {
+            "blockName": "Peak",
+            "deliveryStart": "2025-05-30T06:00:00Z",
+            "deliveryEnd": "2025-05-30T18:00:00Z",
+            "volumePerArea": {
+                "NO2": {
+                    "buy": 2789.9,
+                    "sell": 18782.9
+                },
+                "UK": {
+                    "buy": 150659.4,
+                    "sell": 135210.5
+                }
+            }
+        },
+        {
+            "blockName": "Block 3+4",
+            "deliveryStart": "2025-05-30T06:00:00Z",
+            "deliveryEnd": "2025-05-30T14:00:00Z",
+            "volumePerArea": {
+                "NO2": {
+                    "buy": 2308.9,
+                    "sell": 12505.9
+                },
+                "UK": {
+                    "buy": 97640.7,
+                    "sell": 87790.6
+                }
+            }
+        },
+        {
+            "blockName": "Block 5",
+            "deliveryStart": "2025-05-30T14:00:00Z",
+            "deliveryEnd": "2025-05-30T18:00:00Z",
+            "volumePerArea": {
+                "NO2": {
+                    "buy": 481.0,
+                    "sell": 6277.0
+                },
+                "UK": {
+                    "buy": 53018.7,
+                    "sell": 47419.9
+                }
+            }
+        },
+        {
+            "blockName": "Block 6",
+            "deliveryStart": "2025-05-30T18:00:00Z",
+            "deliveryEnd": "2025-05-30T22:00:00Z",
+            "volumePerArea": {
+                "NO2": {
+                    "buy": 42.9,
+                    "sell": 5838.9
+                },
+                "UK": {
+                    "buy": 61435.0,
+                    "sell": 55836.2
+                }
+            }
+        }
+    ],
+    "areaStates": [
+        {
+            "state": "Final",
+            "areas": [
+                "NO2",
+                "UK"
+            ]
+        }
+    ],
+    "updatedAt": "2025-05-29T08:57:12.3135591Z",
+    "deliveryDateCET": "2025-05-30",
+    "areas": [
+        "NO2",
+        "UK"
+    ],
+    "multiAreaEntries": [
+        {
+            "deliveryStart": "2025-05-29T22:00:00Z",
+            "deliveryEnd": "2025-05-29T23:00:00Z",
+            "entryPerArea": {
+                "NO2": {
+                    "buy": 0.0,
+                    "sell": 984.0
+                },
+                "UK": {
+                    "buy": 12573.4,
+                    "sell": 11622.9
+                }
+            }
+        },
+        {
+            "deliveryStart": "2025-05-29T23:00:00Z",
+            "deliveryEnd": "2025-05-30T00:00:00Z",
+            "entryPerArea": {
+                "NO2": {
+                    "buy": 440.3,
+                    "sell": 959.3
+                },
+                "UK": {
+                    "buy": 11852.0,
+                    "sell": 11350.6
+                }
+            }
+        },
+        {
+            "deliveryStart": "2025-05-30T00:00:00Z",
+            "deliveryEnd": "2025-05-30T01:00:00Z",
+            "entryPerArea": {
+                "NO2": {
+                    "buy": 763.6,
+                    "sell": 817.6
+                },
+                "UK": {
+                    "buy": 11911.0,
+                    "sell": 11858.8
+                }
+            }
+        },
+        {
+            "deliveryStart": "2025-05-30T01:00:00Z",
+            "deliveryEnd": "2025-05-30T02:00:00Z",
+            "entryPerArea": {
+                "NO2": {
+                    "buy": 1183.0,
+                    "sell": 786.0
+                },
+                "UK": {
+                    "buy": 11832.4,
+                    "sell": 12243.4
+                }
+            }
+        },
+        {
+            "deliveryStart": "2025-05-30T02:00:00Z",
+            "deliveryEnd": "2025-05-30T03:00:00Z",
+            "entryPerArea": {
+                "NO2": {
+                    "buy": 1601.1,
+                    "sell": 754.9
+                },
+                "UK": {
+                    "buy": 11625.0,
+                    "sell": 12501.0
+                }
+            }
+        },
+        {
+            "deliveryStart": "2025-05-30T03:00:00Z",
+            "deliveryEnd": "2025-05-30T04:00:00Z",
+            "entryPerArea": {
+                "NO2": {
+                    "buy": 1382.1,
+                    "sell": 535.9
+                },
+                "UK": {
+                    "buy": 11444.1,
+                    "sell": 12320.1
+                }
+            }
+        },
+        {
+            "deliveryStart": "2025-05-30T04:00:00Z",
+            "deliveryEnd": "2025-05-30T05:00:00Z",
+            "entryPerArea": {
+                "NO2": {
+                    "buy": 947.5,
+                    "sell": 550.5
+                },
+                "UK": {
+                    "buy": 11449.7,
+                    "sell": 11860.7
+                }
+            }
+        },
+        {
+            "deliveryStart": "2025-05-30T05:00:00Z",
+            "deliveryEnd": "2025-05-30T06:00:00Z",
+            "entryPerArea": {
+                "NO2": {
+                    "buy": 594.8,
+                    "sell": 648.8
+                },
+                "UK": {
+                    "buy": 11316.8,
+                    "sell": 11264.6
+                }
+            }
+        },
+        {
+            "deliveryStart": "2025-05-30T06:00:00Z",
+            "deliveryEnd": "2025-05-30T07:00:00Z",
+            "entryPerArea": {
+                "NO2": {
+                    "buy": 271.7,
+                    "sell": 790.7
+                },
+                "UK": {
+                    "buy": 11845.7,
+                    "sell": 11344.3
+                }
+            }
+        },
+        {
+            "deliveryStart": "2025-05-30T07:00:00Z",
+            "deliveryEnd": "2025-05-30T08:00:00Z",
+            "entryPerArea": {
+                "NO2": {
+                    "buy": 643.7,
+                    "sell": 1627.7
+                },
+                "UK": {
+                    "buy": 12260.4,
+                    "sell": 11309.9
+                }
+            }
+        },
+        {
+            "deliveryStart": "2025-05-30T08:00:00Z",
+            "deliveryEnd": "2025-05-30T09:00:00Z",
+            "entryPerArea": {
+                "NO2": {
+                    "buy": 462.0,
+                    "sell": 1911.0
+                },
+                "UK": {
+                    "buy": 12456.9,
+                    "sell": 11057.2
+                }
+            }
+        },
+        {
+            "deliveryStart": "2025-05-30T09:00:00Z",
+            "deliveryEnd": "2025-05-30T10:00:00Z",
+            "entryPerArea": {
+                "NO2": {
+                    "buy": 267.2,
+                    "sell": 1716.2
+                },
+                "UK": {
+                    "buy": 12212.6,
+                    "sell": 10812.9
+                }
+            }
+        },
+        {
+            "deliveryStart": "2025-05-30T10:00:00Z",
+            "deliveryEnd": "2025-05-30T11:00:00Z",
+            "entryPerArea": {
+                "NO2": {
+                    "buy": 230.1,
+                    "sell": 1679.1
+                },
+                "UK": {
+                    "buy": 12484.9,
+                    "sell": 11085.2
+                }
+            }
+        },
+        {
+            "deliveryStart": "2025-05-30T11:00:00Z",
+            "deliveryEnd": "2025-05-30T12:00:00Z",
+            "entryPerArea": {
+                "NO2": {
+                    "buy": 130.2,
+                    "sell": 1579.2
+                },
+                "UK": {
+                    "buy": 12285.1,
+                    "sell": 10885.4
+                }
+            }
+        },
+        {
+            "deliveryStart": "2025-05-30T12:00:00Z",
+            "deliveryEnd": "2025-05-30T13:00:00Z",
+            "entryPerArea": {
+                "NO2": {
+                    "buy": 70.0,
+                    "sell": 1519.0
+                },
+                "UK": {
+                    "buy": 11991.9,
+                    "sell": 10592.2
+                }
+            }
+        },
+        {
+            "deliveryStart": "2025-05-30T13:00:00Z",
+            "deliveryEnd": "2025-05-30T14:00:00Z",
+            "entryPerArea": {
+                "NO2": {
+                    "buy": 234.0,
+                    "sell": 1683.0
+                },
+                "UK": {
+                    "buy": 12103.2,
+                    "sell": 10703.5
+                }
+            }
+        },
+        {
+            "deliveryStart": "2025-05-30T14:00:00Z",
+            "deliveryEnd": "2025-05-30T15:00:00Z",
+            "entryPerArea": {
+                "NO2": {
+                    "buy": 240.7,
+                    "sell": 1689.7
+                },
+                "UK": {
+                    "buy": 11451.4,
+                    "sell": 10051.7
+                }
+            }
+        },
+        {
+            "deliveryStart": "2025-05-30T15:00:00Z",
+            "deliveryEnd": "2025-05-30T16:00:00Z",
+            "entryPerArea": {
+                "NO2": {
+                    "buy": 150.3,
+                    "sell": 1599.3
+                },
+                "UK": {
+                    "buy": 12081.0,
+                    "sell": 10681.3
+                }
+            }
+        },
+        {
+            "deliveryStart": "2025-05-30T16:00:00Z",
+            "deliveryEnd": "2025-05-30T17:00:00Z",
+            "entryPerArea": {
+                "NO2": {
+                    "buy": 70.0,
+                    "sell": 1519.0
+                },
+                "UK": {
+                    "buy": 13480.0,
+                    "sell": 12080.3
+                }
+            }
+        },
+        {
+            "deliveryStart": "2025-05-30T17:00:00Z",
+            "deliveryEnd": "2025-05-30T18:00:00Z",
+            "entryPerArea": {
+                "NO2": {
+                    "buy": 20.0,
+                    "sell": 1469.0
+                },
+                "UK": {
+                    "buy": 16006.3,
+                    "sell": 14606.6
+                }
+            }
+        },
+        {
+            "deliveryStart": "2025-05-30T18:00:00Z",
+            "deliveryEnd": "2025-05-30T19:00:00Z",
+            "entryPerArea": {
+                "NO2": {
+                    "buy": 24.6,
+                    "sell": 1473.6
+                },
+                "UK": {
+                    "buy": 15817.2,
+                    "sell": 14417.5
+                }
+            }
+        },
+        {
+            "deliveryStart": "2025-05-30T19:00:00Z",
+            "deliveryEnd": "2025-05-30T20:00:00Z",
+            "entryPerArea": {
+                "NO2": {
+                    "buy": 4.6,
+                    "sell": 1453.6
+                },
+                "UK": {
+                    "buy": 15245.6,
+                    "sell": 13845.9
+                }
+            }
+        },
+        {
+            "deliveryStart": "2025-05-30T20:00:00Z",
+            "deliveryEnd": "2025-05-30T21:00:00Z",
+            "entryPerArea": {
+                "NO2": {
+                    "buy": 13.7,
+                    "sell": 1462.7
+                },
+                "UK": {
+                    "buy": 15161.3,
+                    "sell": 13761.6
+                }
+            }
+        },
+        {
+            "deliveryStart": "2025-05-30T21:00:00Z",
+            "deliveryEnd": "2025-05-30T22:00:00Z",
+            "entryPerArea": {
+                "NO2": {
+                    "buy": 0.0,
+                    "sell": 1449.0
+                },
+                "UK": {
+                    "buy": 15210.9,
+                    "sell": 13811.2
+                }
+            }
+        }
+    ]
+}

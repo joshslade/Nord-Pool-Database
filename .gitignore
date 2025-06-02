@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.env.*
+*.sqlite3
+
+# Conda
+env/
+
+# VS Code
+.vscode/
+
+# exports
+exports/

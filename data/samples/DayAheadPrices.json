@@ -2,11 +2,11 @@
     "deliveryDateCET": "2025-05-31",
     "version": 2,
     "updatedAt": "2025-05-30T08:59:27.1463296Z",
+    "market": "N2EX_DayAhead",
     "deliveryAreas": [
         "NO2",
         "UK"
     ],
-    "market": "N2EX_DayAhead",
     "multiAreaEntries": [
         {
             "deliveryStart": "2025-05-30T22:00:00Z",

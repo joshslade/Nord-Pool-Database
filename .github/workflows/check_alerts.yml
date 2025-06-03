@@ -1,0 +1,43 @@
+name: Check API Alerts
+
+# Run once per day (09:00 UTC). Adjust the cron expression to your preferred time.
+on:
+  schedule:
+    - cron: '15 10 * * *'
+  workflow_dispatch:      # ← allows you to “Run workflow” by clicking a button
+
+jobs:
+  notify_if_alerts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up Miniconda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          python-version: "3.11.11"              # match the version in environment.yml
+          environment-file: environment.yml  # this will create & activate `check_alerts_env`
+          activate-environment: nordpooldb-env
+
+      - name: Run alert checker
+        env:
+          # Database (Supabase) connection
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+          DB_NAME: ${{ secrets.DB_NAME }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+
+          # SMTP credentials
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+
+          # Email addresses
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+        run: |
+          python tests/check_alerts.py

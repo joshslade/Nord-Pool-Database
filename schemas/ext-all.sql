@@ -157,7 +157,7 @@ BEGIN
       COUNT(*)                                       AS total_logged,
       COUNT(*) FILTER (WHERE processed_at IS NOT NULL)   AS total_processed,
       COUNT(*) FILTER (WHERE success = true)         AS total_success,
-      COUNT(*) FILTER (WHERE record_count % 25 = 0)         AS total_successful_inserts,	
+      COUNT(*) FILTER (WHERE record_count % 24 = 0)         AS total_successful_inserts,	
       ARRAY_AGG(
         CASE 
           WHEN processed_at IS NULL 
@@ -166,13 +166,13 @@ BEGIN
             THEN endpoint_id::text 
                  || ': parser‐error ('
                  || COALESCE(note, 'no detail') || ')'
-		  WHEN record_count % 25 != 0
+		  WHEN record_count % 24 != 0
           	THEN endpoint_id::text 
                  || ': hourly-insert-error ('
                  || COALESCE(note, 'no detail') || ')'
           ELSE NULL
         END
-      ) FILTER (WHERE processed_at IS NULL OR success = false OR record_count % 25 != 0) AS problems
+      ) FILTER (WHERE processed_at IS NULL OR success = false OR record_count % 24 != 0) AS problems
     FROM today_requests
   )
   SELECT total_logged, total_processed, total_success, total_successful_inserts, problems

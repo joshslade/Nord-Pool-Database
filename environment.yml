@@ -7,4 +7,8 @@ dependencies:
   - python=3.11
   - sqlalchemy
   - psycopg2-binary
-  - python-dotenv=1.1.0
+  - pip
+
+  # Anything under “pip:” will be installed via pip into the same env
+  - pip:
+    - python-dotenv

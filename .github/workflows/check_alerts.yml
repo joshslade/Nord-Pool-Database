@@ -21,10 +21,17 @@ jobs:
           environment-file: environment.yml  # this will create & activate `check_alerts_env`
           activate-environment: nordpooldb-env
 
+      # Install python-dotenv via pip in the same shell
+      - name: Install python-dotenv
+        shell: bash -l {0}              # <-- use login shell so conda is active
+        run: pip install python-dotenv
+
       - name: List installed packages
+        shell: bash -l {0}
         run: conda list      
 
       - name: Run alert checker
+        shell: bash -l {0}              # <-- again: login shell ensures conda env is activated
         env:
           # Database (Supabase) connection
           DB_HOST: ${{ secrets.DB_HOST }}

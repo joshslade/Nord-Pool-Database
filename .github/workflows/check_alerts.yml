@@ -1,10 +1,10 @@
 name: Check API Alerts
 
-# Run once per day (09:00 UTC). Adjust the cron expression to your preferred time.
+# Schedule: once per day at 09:00 UTC, plus allow manual dispatch
 on:
   schedule:
-    - cron: '15 10 * * *'
-  workflow_dispatch:      # ← allows you to “Run workflow” by clicking a button
+    - cron: '0 9 * * *'
+  workflow_dispatch:
 
 jobs:
   notify_if_alerts:
@@ -14,40 +14,28 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3
 
-      - name: Set up Miniconda
-        uses: conda-incubator/setup-miniconda@v2
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
         with:
-          python-version: "3.11.11"              # match the version in environment.yml
-          environment-file: environment.yml  # this will create & activate `check_alerts_env`
-          activate-environment: nordpooldb-env
+          python-version: '3.11'
 
-      # Install python-dotenv via pip in the same shell
-      - name: Install python-dotenv
-        shell: bash -l {0}              # <-- use login shell so conda is active
-        run: pip install python-dotenv
-
-      - name: List installed packages
-        shell: bash -l {0}
-        run: conda list      
+      - name: Install dependencies via pip
+        run: |
+          python -m pip install --upgrade pip
+          pip install sqlalchemy psycopg2-binary python-dotenv
 
       - name: Run alert checker
-        shell: bash -l {0}              # <-- again: login shell ensures conda env is activated
         env:
-          # Database (Supabase) connection
-          DB_HOST: ${{ secrets.DB_HOST }}
-          DB_PORT: ${{ secrets.DB_PORT }}
-          DB_NAME: ${{ secrets.DB_NAME }}
-          DB_USER: ${{ secrets.DB_USER }}
+          DB_HOST:     ${{ secrets.DB_HOST }}
+          DB_PORT:     ${{ secrets.DB_PORT }}
+          DB_NAME:     ${{ secrets.DB_NAME }}
+          DB_USER:     ${{ secrets.DB_USER }}
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-
-          # SMTP credentials
-          SMTP_HOST: ${{ secrets.SMTP_HOST }}
-          SMTP_PORT: ${{ secrets.SMTP_PORT }}
-          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_HOST:     ${{ secrets.SMTP_HOST }}
+          SMTP_PORT:     ${{ secrets.SMTP_PORT }}
+          SMTP_USER:     ${{ secrets.SMTP_USER }}
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-
-          # Email addresses
-          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
-          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          EMAIL_FROM:    ${{ secrets.EMAIL_FROM }}
+          EMAIL_TO:      ${{ secrets.EMAIL_TO }}
         run: |
           python tests/check_alerts.py

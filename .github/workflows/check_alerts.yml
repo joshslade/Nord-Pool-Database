@@ -1,9 +1,9 @@
 name: Check API Alerts
 
-# Schedule: once per day at 10:15 UTC, plus allow manual dispatch
+# Schedule: once per day at 09:20 UTC, plus allow manual dispatch
 on:
   schedule:
-    - cron: '15 10 * * *'
+    - cron: '20 9 * * *'
   workflow_dispatch:
 
 jobs:

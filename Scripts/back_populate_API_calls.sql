@@ -10,7 +10,7 @@ DECLARE
 	v_req_id bigint;
 BEGIN
     FOR ep IN
-        SELECT * FROM ext.api_endpoint where code in ('DA_VOLUMES')
+        SELECT * FROM ext.api_endpoint where code in ('DA_FLOW_NO2','DA_FLOW_UK')
     LOOP
         FOR dt IN
             SELECT generate_series('2025-03-29'::date, '2025-06-02', '1 day')
@@ -45,3 +45,5 @@ hr.*
 from net._http_response hr 
 join ext.api_request_log arl on arl.request_id = hr.id
 where arl.success is null
+
+select * from analytics.latest_da_flow ldf 

@@ -27,6 +27,20 @@ CREATE TABLE IF NOT EXISTS ext.api_request_log (
     note           text
 );
 
+ALTER TABLE ext.api_request_log
+  ADD COLUMN batch_id      bigint,
+  ADD COLUMN delivery_date date,
+  ADD COLUMN record_count  integer;
+
+
+CREATE TABLE IF NOT EXISTS ext.api_daily_alerts (
+  alert_id    bigserial PRIMARY KEY,
+  alert_date  date       NOT NULL,         -- usually current_date
+  issues      text[]    NOT NULL,         -- array of “endpoint_id: description”
+  created_at  timestamptz DEFAULT now()
+);
+
+
 /********************************************************************
   4 .  Generic fetcher – queues all active endpoints
 *********************************************************************/
@@ -117,4 +131,75 @@ BEGIN
 END;
 $$;
 
-select ext.process_api_responses()
+CREATE OR REPLACE FUNCTION ext.check_daily_api_status()
+RETURNS void
+LANGUAGE plpgsql
+AS $$
+DECLARE
+  v_total_logged     int;
+  v_total_processed  int;
+  v_total_success    int;
+  v_total_inserts    int;
+  v_problems         text[];
+BEGIN
+  WITH today_requests AS (
+    SELECT
+      endpoint_id,
+      processed_at,
+      success,
+	  record_count,
+      note
+    FROM ext.api_request_log
+    WHERE requested_at::date = current_date
+  )
+  , summary AS (
+    SELECT 
+      COUNT(*)                                       AS total_logged,
+      COUNT(*) FILTER (WHERE processed_at IS NOT NULL)   AS total_processed,
+      COUNT(*) FILTER (WHERE success = true)         AS total_success,
+      COUNT(*) FILTER (WHERE record_count % 25 = 0)         AS total_successful_inserts,	
+      ARRAY_AGG(
+        CASE 
+          WHEN processed_at IS NULL 
+            THEN endpoint_id::text || ': never processed'
+          WHEN success = false 
+            THEN endpoint_id::text 
+                 || ': parser‐error ('
+                 || COALESCE(note, 'no detail') || ')'
+		  WHEN record_count % 25 != 0
+          	THEN endpoint_id::text 
+                 || ': hourly-insert-error ('
+                 || COALESCE(note, 'no detail') || ')'
+          ELSE NULL
+        END
+      ) FILTER (WHERE processed_at IS NULL OR success = false OR record_count % 25 != 0) AS problems
+    FROM today_requests
+  )
+  SELECT total_logged, total_processed, total_success, total_successful_inserts, problems
+    INTO v_total_logged, v_total_processed, v_total_success, v_total_inserts, v_problems
+  FROM summary;
+
+  -- Now decide if we need to insert an alert
+  IF v_total_logged  < 6 
+     OR v_total_processed < 6 
+     OR v_total_success < 6 
+     OR v_total_inserts < 6 THEN
+
+    INSERT INTO ext.api_daily_alerts(alert_date, issues)
+    VALUES (current_date, v_problems);
+
+    -- (Optionally, RAISE NOTICE so that a cron‐wrapper can grep for it.)
+    RAISE NOTICE 'API‐daily alert (date=%, logged=% total, processed=% total, success=% total, inserts=% total): %',
+                 current_date, v_total_logged, v_total_processed, v_total_success, v_total_inserts,
+                 v_problems;
+  ELSE
+  -- If all six succeeded (logged=6, processed=6, success=6), do nothing.
+	RAISE NOTICE 'API-daily alert (date=%): All checks passed', current_date	;
+  END IF;
+
+END;
+$$;
+
+SELECT ext.check_daily_api_status();
+
+select * from ext.api_daily_alerts

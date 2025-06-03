@@ -38,6 +38,8 @@ AS $$
 DECLARE
     v_body      jsonb;
     v_batch_id  bigint;
+    v_delivery_dt  date;
+    v_count        integer;
 BEGIN
     -- pull the raw body
     SELECT content::jsonb
@@ -45,6 +47,8 @@ BEGIN
       FROM net._http_response
      WHERE id = p_request_id;
 
+    -- 2) extract delivery_date so we can log it
+    v_delivery_dt := (v_body->>'deliveryDateCET')::date;
 
     ----------------------------------------------------------------
     -- 3.1  Insert batch-level row
@@ -76,6 +80,19 @@ BEGIN
       FROM  jsonb_array_elements(v_body->'capacities') AS h,
             LATERAL jsonb_each(h->'importsByConnection')  AS import(key,value),
             LATERAL jsonb_each(h->'exportsByConnection')  AS export(key,value);
+
+    -- 3.3) count how many rows got inserted
+    GET DIAGNOSTICS v_count = ROW_COUNT;
+
+    ----------------------------------------------------------------
+    -- 3.4) update the request‐log
+    ----------------------------------------------------------------
+    UPDATE ext.api_request_log
+       SET batch_id      = v_batch_id,
+           delivery_date = v_delivery_dt,
+           record_count  = v_count
+     WHERE request_id    = p_request_id;
+
 END;
 $$;
 

@@ -1,3 +1,4 @@
+CREATE OR REPLACE VIEW analytics.latest_da_prices AS
 select 
 	dpb.delivery_date as delivery_date
     ,TO_CHAR(dph.delivery_start AT TIME ZONE 'Europe/London', 'HH24:MI') || ' - ' || 
@@ -20,7 +21,7 @@ group by
     ,dph.delivery_end
 order by dph.delivery_start;
 
-
+CREATE OR REPLACE VIEW analytics.latest_da_idx_prices AS
 select 
 	dpb.delivery_date as delivery_date
     ,TO_CHAR(dph.delivery_start AT TIME ZONE 'Europe/London', 'HH24:MI') || ' - ' || 
@@ -43,6 +44,7 @@ group by
     ,dph.delivery_end
 order by dph.delivery_start;
 
+CREATE OR REPLACE VIEW analytics.latest_da_volumes AS
 select 
 	dvb.delivery_date as delivery_date
     ,TO_CHAR(dvh.delivery_start AT TIME ZONE 'Europe/London', 'HH24:MI') || ' - ' || 
@@ -67,6 +69,7 @@ group by
     ,dvh.delivery_end
 order by dvh.delivery_start;
 
+CREATE OR REPLACE VIEW analytics.latest_da_capacity AS
 select 
 	 dcb.delivery_date as delivery_date
     ,TO_CHAR(dch.delivery_start AT TIME ZONE 'Europe/London', 'HH24:MI') || ' - ' || 
@@ -89,6 +92,7 @@ group by
     ,dch.delivery_end
 order by dch.delivery_start;
 
+CREATE OR REPLACE VIEW analytics.latest_da_flow AS
 select 
 	 dfb.delivery_date as delivery_date
     ,TO_CHAR(dfh.delivery_start AT TIME ZONE 'Europe/London', 'HH24:MI') || ' - ' || 
@@ -105,7 +109,6 @@ INNER JOIN (
     FROM core.da_flow_batch
     GROUP BY delivery_date, delivery_area
 ) dfb ON dfh.batch_id = dfb.batch_id
-where dfb.delivery_date = '2025-06-03'
 group by 
 	dfb.delivery_date
     ,TO_CHAR(dfh.delivery_start AT TIME ZONE 'Europe/London', 'HH24:MI') || ' - ' || 
@@ -113,10 +116,3 @@ group by
     ,dfh.delivery_start
     ,dfh.delivery_end
 order by dfh.delivery_start;
-
-
-
-
-select dfb.delivery_date, dfh.*, dfb.delivery_area from core.da_flow_hourly dfh
-join core.da_flow_batch dfb using (batch_id)
-where dfb.delivery_date = '2025-06-03'

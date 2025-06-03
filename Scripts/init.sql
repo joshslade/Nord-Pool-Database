@@ -6,4 +6,4 @@ CREATE EXTENSION IF NOT EXISTS pg_cron;  -- scheduling
 
 CREATE SCHEMA IF NOT EXISTS ext;   -- config / integration
 CREATE SCHEMA IF NOT EXISTS core;  -- raw json parse output
-CREATE SCHEMA IF NOT EXISTS conform;  -- conformed tables for querying
+CREATE SCHEMA IF NOT EXISTS analytics;  -- conformed tables for querying

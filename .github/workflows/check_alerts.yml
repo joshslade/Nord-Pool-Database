@@ -21,6 +21,9 @@ jobs:
           environment-file: environment.yml  # this will create & activate `check_alerts_env`
           activate-environment: nordpooldb-env
 
+      - name: List installed packages
+        run: conda list      
+
       - name: Run alert checker
         env:
           # Database (Supabase) connection

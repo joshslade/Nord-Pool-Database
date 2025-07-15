@@ -1,8 +1,10 @@
 # check_alerts.py
 
 import os
-from datetime import date
+from datetime import date, timedelta
 from dotenv import load_dotenv
+import pandas as pd
+from .sheets import append_dataframe_to_sheet
 
 from sqlalchemy import create_engine, text
 from sqlalchemy.engine import URL
@@ -43,9 +45,29 @@ def get_alert_rows():
         rows = result.fetchall()
     return rows  # each row is a SQLAlchemy Row: (alert_id, issues_list)
 
+def get_latest_data():
+    query = "SELECT * FROM analytics.latest_da_combined WHERE delivery_date = %(tomorrow)s"
+    params = {"tomorrow": date.today() + timedelta(days=1)}
+
+    with engine.connect() as conn:
+        df = pd.read_sql(query, conn, params=params)
+    
+    return df
+
 def success():
+    """
+    If no alerts, fetch latest data from view and append to google sheet
+    """
+
+    df = get_latest_data()
+
+    response = append_dataframe_to_sheet(df)
+
+    
+
+    
     subject = f"[SUCCESS] API successfully run for {date.today().isoformat()}"
-    body = "No issues detected"
+    body = f"No API call issues detected. Google sheets: {str(response)}"
 
     return body, subject
 

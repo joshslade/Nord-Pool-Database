@@ -18,3 +18,7 @@ exports/
 
 # github
 secrets.txt
+
+# google credentials
+token.json
+credentials.json

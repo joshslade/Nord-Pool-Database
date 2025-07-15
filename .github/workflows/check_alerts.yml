@@ -26,7 +26,7 @@ jobs:
 
       - name: Write Google credentials
         run: |
-          echo "${{ secrets.GCP_TOKEN_JSON }}" > token.json        
+          echo '${{ secrets.GCP_TOKEN_JSON }}' > token.json        
 
       - name: Debug token.json
         run: head -c 100 token.json

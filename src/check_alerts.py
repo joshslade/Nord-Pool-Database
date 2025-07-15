@@ -4,7 +4,7 @@ import os
 from datetime import date, timedelta
 from dotenv import load_dotenv
 import pandas as pd
-from .sheets import append_dataframe_to_sheet
+from sheets import append_dataframe_to_sheet
 
 from sqlalchemy import create_engine, text
 from sqlalchemy.engine import URL

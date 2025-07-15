@@ -28,6 +28,9 @@ jobs:
         run: |
           echo "${{ secrets.GCP_TOKEN_JSON }}" > token.json        
 
+      - name: Debug token.json
+        run: head -c 100 token.json
+
       - name: Run alert checker
         env:
           DB_HOST:     ${{ secrets.DB_HOST }}

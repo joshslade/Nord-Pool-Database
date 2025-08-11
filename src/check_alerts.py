@@ -1,7 +1,7 @@
 # check_alerts.py
 
 import os
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
 from dotenv import load_dotenv
 import pandas as pd
 from sheets import append_dataframe_to_sheet
@@ -45,9 +45,27 @@ def get_alert_rows():
         rows = result.fetchall()
     return rows  # each row is a SQLAlchemy Row: (alert_id, issues_list)
 
-def get_latest_data():
-    query = "SELECT * FROM analytics.latest_da_combined WHERE delivery_date = %(tomorrow)s"
-    params = {"tomorrow": date.today() + timedelta(days=1)}
+def get_latest_data(query_date: str | None = None):
+    """
+    Fetch latest data for the given query_date (YYYY-MM-DD) from analytics.latest_da_combined.
+    Defaults to tomorrow if no date is provided.
+    """
+    # If no date is passed, use tomorrow
+    if query_date is None:
+        query_date_obj = date.today() + timedelta(days=1)
+    else:
+        # Convert string to date object
+        try:
+            query_date_obj = datetime.strptime(query_date, "%Y-%m-%d").date()
+        except ValueError:
+            raise ValueError("query_date must be in 'YYYY-MM-DD' format")
+
+    query = """
+        SELECT *
+        FROM analytics.latest_da_combined
+        WHERE delivery_date = %(delivery_date)s
+    """
+    params = {"delivery_date": query_date_obj}
 
     with engine.connect() as conn:
         df = pd.read_sql(query, conn, params=params)

@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS ext.api_daily_alerts (
 /********************************************************************
   4 .  Generic fetcher – queues all active endpoints
 *********************************************************************/
-CREATE OR REPLACE FUNCTION ext.api_fetch_all()
+CREATE OR REPLACE FUNCTION ext.api_fetch_all(p_date_str text DEFAULT NULL)
 RETURNS void
 LANGUAGE plpgsql
 AS $$
@@ -52,8 +52,15 @@ DECLARE
     rec        record;
     v_url      text;
     v_req_id   bigint;
-    v_today    date := (CURRENT_DATE AT TIME ZONE 'Europe/London');  -- local “today”
+    v_today    date;
 BEGIN
+    /* Assign v_today */
+    IF p_date_str IS NOT NULL THEN
+        v_today := to_date(p_date_str, 'YYYY-MM-DD');
+    ELSE
+        v_today := (CURRENT_DATE AT TIME ZONE 'Europe/London');
+    END IF;
+
     FOR rec IN
         SELECT * FROM ext.api_endpoint
         WHERE is_active
